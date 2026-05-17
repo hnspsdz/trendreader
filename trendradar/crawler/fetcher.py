@@ -74,9 +74,13 @@ class DataFetcher:
 
         url = f"{self.api_url}?id={id_value}&latest"
 
-        proxies = None
+        # 显式控制代理：有配置则使用，无配置则禁用系统代理
+        # 不设 proxies=None 是因为 requests 会自动读取系统代理（如 Windows 全局代理）
+        # 当系统代理不可用时会导致连接失败
         if self.proxy_url:
             proxies = {"http": self.proxy_url, "https": self.proxy_url}
+        else:
+            proxies = {"http": None, "https": None}
 
         retries = 0
         while retries <= max_retries:
