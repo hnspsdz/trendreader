@@ -130,6 +130,31 @@ rss:
       name: "Ars Technica"
       url: "https://feeds.arstechnica.com/arstechnica/index"
 
+    # ── Agent 相关 RSS 源 ──
+    - id: "langchain-blog"
+      name: "LangChain Blog"
+      url: "https://blog.langchain.dev/rss/"
+
+    - id: "anthropic-blog"
+      name: "Anthropic Blog"
+      url: "https://www.anthropic.com/rss/feed.xml"
+
+    - id: "google-ai-blog"
+      name: "Google AI Blog"
+      url: "https://blog.google/technology/ai/rss/"
+
+    - id: "huggingface-blog"
+      name: "Hugging Face Blog"
+      url: "https://huggingface.co/blog/feed.xml"
+
+    - id: "microsoft-ai-blog"
+      name: "Microsoft AI Blog"
+      url: "https://blogs.microsoft.com/ai/feed/"
+
+    - id: "vercel-ai-blog"
+      name: "Vercel AI Blog"
+      url: "https://vercel.ai/blog/rss.xml"
+
 
 # ===============================================================
 # 4. 报告模式
