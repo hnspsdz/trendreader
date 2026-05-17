@@ -83,27 +83,22 @@ def render_ai_analysis_markdown(result: AIAnalysisResult) -> str:
             return f"ℹ️ {result.error}"
         return f"⚠️ AI 分析失败: {result.error}"
 
-    lines = ["**✨ AI 热点分析**", ""]
+    lines = ["**✨ AI 技术分析**", ""]
 
-    if result.core_trends:
-        lines.extend(["**核心热点态势**", _format_list_content(result.core_trends), ""])
+    if result.tech_breakthroughs:
+        lines.extend(["**技术突破与创新**", _format_list_content(result.tech_breakthroughs), ""])
 
-    if result.sentiment_controversy:
+    if result.ecosystem_changes:
         lines.extend(
-            ["**舆论风向争议**", _format_list_content(result.sentiment_controversy), ""]
+            ["**生态与社区动态**", _format_list_content(result.ecosystem_changes), ""]
         )
 
-    if result.signals:
-        lines.extend(["**异动与弱信号**", _format_list_content(result.signals), ""])
+    if result.engineering_practice:
+        lines.extend(["**工程实践与落地**", _format_list_content(result.engineering_practice), ""])
 
     if result.rss_insights:
         lines.extend(
             ["**RSS 深度洞察**", _format_list_content(result.rss_insights), ""]
-        )
-
-    if result.outlook_strategy:
-        lines.extend(
-            ["**研判策略建议**", _format_list_content(result.outlook_strategy), ""]
         )
 
     if result.standalone_summaries:
@@ -121,27 +116,22 @@ def render_ai_analysis_feishu(result: AIAnalysisResult) -> str:
             return f"ℹ️ {result.error}"
         return f"⚠️ AI 分析失败: {result.error}"
 
-    lines = ["**✨ AI 热点分析**", ""]
+    lines = ["**✨ AI 技术分析**", ""]
 
-    if result.core_trends:
-        lines.extend(["**核心热点态势**", _format_list_content(result.core_trends), ""])
+    if result.tech_breakthroughs:
+        lines.extend(["**技术突破与创新**", _format_list_content(result.tech_breakthroughs), ""])
 
-    if result.sentiment_controversy:
+    if result.ecosystem_changes:
         lines.extend(
-            ["**舆论风向争议**", _format_list_content(result.sentiment_controversy), ""]
+            ["**生态与社区动态**", _format_list_content(result.ecosystem_changes), ""]
         )
 
-    if result.signals:
-        lines.extend(["**异动与弱信号**", _format_list_content(result.signals), ""])
+    if result.engineering_practice:
+        lines.extend(["**工程实践与落地**", _format_list_content(result.engineering_practice), ""])
 
     if result.rss_insights:
         lines.extend(
             ["**RSS 深度洞察**", _format_list_content(result.rss_insights), ""]
-        )
-
-    if result.outlook_strategy:
-        lines.extend(
-            ["**研判策略建议**", _format_list_content(result.outlook_strategy), ""]
         )
 
     if result.standalone_summaries:
@@ -159,33 +149,28 @@ def render_ai_analysis_dingtalk(result: AIAnalysisResult) -> str:
             return f"ℹ️ {result.error}"
         return f"⚠️ AI 分析失败: {result.error}"
 
-    lines = ["### ✨ AI 热点分析", ""]
+    lines = ["### ✨ AI 技术分析", ""]
 
-    if result.core_trends:
+    if result.tech_breakthroughs:
         lines.extend(
-            ["#### 核心热点态势", _format_list_content(result.core_trends), ""]
+            ["#### 技术突破与创新", _format_list_content(result.tech_breakthroughs), ""]
         )
 
-    if result.sentiment_controversy:
+    if result.ecosystem_changes:
         lines.extend(
             [
-                "#### 舆论风向争议",
-                _format_list_content(result.sentiment_controversy),
+                "#### 生态与社区动态",
+                _format_list_content(result.ecosystem_changes),
                 "",
             ]
         )
 
-    if result.signals:
-        lines.extend(["#### 异动与弱信号", _format_list_content(result.signals), ""])
+    if result.engineering_practice:
+        lines.extend(["#### 工程实践与落地", _format_list_content(result.engineering_practice), ""])
 
     if result.rss_insights:
         lines.extend(
             ["#### RSS 深度洞察", _format_list_content(result.rss_insights), ""]
-        )
-
-    if result.outlook_strategy:
-        lines.extend(
-            ["#### 研判策略建议", _format_list_content(result.outlook_strategy), ""]
         )
 
     if result.standalone_summaries:
@@ -205,39 +190,39 @@ def render_ai_analysis_html(result: AIAnalysisResult) -> str:
             f'<div class="ai-error">⚠️ AI 分析失败: {_escape_html(result.error)}</div>'
         )
 
-    html_parts = ['<div class="ai-analysis">', "<h3>✨ AI 热点分析</h3>"]
+    html_parts = ['<div class="ai-analysis">', "<h3>✨ AI 技术分析</h3>"]
 
-    if result.core_trends:
-        content = _format_list_content(result.core_trends)
+    if result.tech_breakthroughs:
+        content = _format_list_content(result.tech_breakthroughs)
         content_html = _escape_html(content).replace("\n", "<br>")
         html_parts.extend(
             [
                 '<div class="ai-section">',
-                "<h4>核心热点态势</h4>",
+                "<h4>技术突破与创新</h4>",
                 f'<div class="ai-content">{content_html}</div>',
                 "</div>",
             ]
         )
 
-    if result.sentiment_controversy:
-        content = _format_list_content(result.sentiment_controversy)
+    if result.ecosystem_changes:
+        content = _format_list_content(result.ecosystem_changes)
         content_html = _escape_html(content).replace("\n", "<br>")
         html_parts.extend(
             [
                 '<div class="ai-section">',
-                "<h4>舆论风向争议</h4>",
+                "<h4>生态与社区动态</h4>",
                 f'<div class="ai-content">{content_html}</div>',
                 "</div>",
             ]
         )
 
-    if result.signals:
-        content = _format_list_content(result.signals)
+    if result.engineering_practice:
+        content = _format_list_content(result.engineering_practice)
         content_html = _escape_html(content).replace("\n", "<br>")
         html_parts.extend(
             [
                 '<div class="ai-section">',
-                "<h4>异动与弱信号</h4>",
+                "<h4>工程实践与落地</h4>",
                 f'<div class="ai-content">{content_html}</div>',
                 "</div>",
             ]
@@ -250,18 +235,6 @@ def render_ai_analysis_html(result: AIAnalysisResult) -> str:
             [
                 '<div class="ai-section">',
                 "<h4>RSS 深度洞察</h4>",
-                f'<div class="ai-content">{content_html}</div>',
-                "</div>",
-            ]
-        )
-
-    if result.outlook_strategy:
-        content = _format_list_content(result.outlook_strategy)
-        content_html = _escape_html(content).replace("\n", "<br>")
-        html_parts.extend(
-            [
-                '<div class="ai-section ai-conclusion">',
-                "<h4>研判策略建议</h4>",
                 f'<div class="ai-content">{content_html}</div>',
                 "</div>",
             ]
@@ -291,24 +264,21 @@ def render_ai_analysis_plain(result: AIAnalysisResult) -> str:
             return result.error
         return f"AI 分析失败: {result.error}"
 
-    lines = ["【✨ AI 热点分析】", ""]
+    lines = ["【✨ AI 技术分析】", ""]
 
-    if result.core_trends:
-        lines.extend(["[核心热点态势]", _format_list_content(result.core_trends), ""])
+    if result.tech_breakthroughs:
+        lines.extend(["[技术突破与创新]", _format_list_content(result.tech_breakthroughs), ""])
 
-    if result.sentiment_controversy:
+    if result.ecosystem_changes:
         lines.extend(
-            ["[舆论风向争议]", _format_list_content(result.sentiment_controversy), ""]
+            ["[生态与社区动态]", _format_list_content(result.ecosystem_changes), ""]
         )
 
-    if result.signals:
-        lines.extend(["[异动与弱信号]", _format_list_content(result.signals), ""])
+    if result.engineering_practice:
+        lines.extend(["[工程实践与落地]", _format_list_content(result.engineering_practice), ""])
 
     if result.rss_insights:
         lines.extend(["[RSS 深度洞察]", _format_list_content(result.rss_insights), ""])
-
-    if result.outlook_strategy:
-        lines.extend(["[研判策略建议]", _format_list_content(result.outlook_strategy), ""])
 
     if result.standalone_summaries:
         summaries_text = _format_standalone_summaries(result.standalone_summaries)
@@ -330,22 +300,19 @@ def render_ai_analysis_telegram(result: AIAnalysisResult) -> str:
             return f"ℹ️ {_escape_html(result.error)}"
         return f"⚠️ AI 分析失败: {_escape_html(result.error)}"
 
-    lines = ["<b>✨ AI 热点分析</b>", ""]
+    lines = ["<b>✨ AI 技术分析</b>", ""]
 
-    if result.core_trends:
-        lines.extend(["<b>核心热点态势</b>", _escape_html(_format_list_content(result.core_trends)), ""])
+    if result.tech_breakthroughs:
+        lines.extend(["<b>技术突破与创新</b>", _escape_html(_format_list_content(result.tech_breakthroughs)), ""])
 
-    if result.sentiment_controversy:
-        lines.extend(["<b>舆论风向争议</b>", _escape_html(_format_list_content(result.sentiment_controversy)), ""])
+    if result.ecosystem_changes:
+        lines.extend(["<b>生态与社区动态</b>", _escape_html(_format_list_content(result.ecosystem_changes)), ""])
 
-    if result.signals:
-        lines.extend(["<b>异动与弱信号</b>", _escape_html(_format_list_content(result.signals)), ""])
+    if result.engineering_practice:
+        lines.extend(["<b>工程实践与落地</b>", _escape_html(_format_list_content(result.engineering_practice)), ""])
 
     if result.rss_insights:
         lines.extend(["<b>RSS 深度洞察</b>", _escape_html(_format_list_content(result.rss_insights)), ""])
-
-    if result.outlook_strategy:
-        lines.extend(["<b>研判策略建议</b>", _escape_html(_format_list_content(result.outlook_strategy)), ""])
 
     if result.standalone_summaries:
         summaries_text = _format_standalone_summaries(result.standalone_summaries)
@@ -391,35 +358,35 @@ def render_ai_analysis_html_rich(result: AIAnalysisResult) -> str:
     ai_html = """
                 <div class="ai-section">
                     <div class="ai-section-header">
-                        <div class="ai-section-title">✨ AI 热点分析</div>
+                        <div class="ai-section-title">✨ AI 技术分析</div>
                         <span class="ai-section-badge">AI</span>
                     </div>
                     <div class="ai-blocks-grid">"""
 
-    if result.core_trends:
-        content = _format_list_content(result.core_trends)
+    if result.tech_breakthroughs:
+        content = _format_list_content(result.tech_breakthroughs)
         content_html = _escape_html(content).replace("\n", "<br>")
         ai_html += f"""
                     <div class="ai-block">
-                        <div class="ai-block-title">核心热点态势</div>
+                        <div class="ai-block-title">技术突破与创新</div>
                         <div class="ai-block-content">{content_html}</div>
                     </div>"""
 
-    if result.sentiment_controversy:
-        content = _format_list_content(result.sentiment_controversy)
+    if result.ecosystem_changes:
+        content = _format_list_content(result.ecosystem_changes)
         content_html = _escape_html(content).replace("\n", "<br>")
         ai_html += f"""
                     <div class="ai-block">
-                        <div class="ai-block-title">舆论风向争议</div>
+                        <div class="ai-block-title">生态与社区动态</div>
                         <div class="ai-block-content">{content_html}</div>
                     </div>"""
 
-    if result.signals:
-        content = _format_list_content(result.signals)
+    if result.engineering_practice:
+        content = _format_list_content(result.engineering_practice)
         content_html = _escape_html(content).replace("\n", "<br>")
         ai_html += f"""
                     <div class="ai-block">
-                        <div class="ai-block-title">异动与弱信号</div>
+                        <div class="ai-block-title">工程实践与落地</div>
                         <div class="ai-block-content">{content_html}</div>
                     </div>"""
 
@@ -429,15 +396,6 @@ def render_ai_analysis_html_rich(result: AIAnalysisResult) -> str:
         ai_html += f"""
                     <div class="ai-block">
                         <div class="ai-block-title">RSS 深度洞察</div>
-                        <div class="ai-block-content">{content_html}</div>
-                    </div>"""
-
-    if result.outlook_strategy:
-        content = _format_list_content(result.outlook_strategy)
-        content_html = _escape_html(content).replace("\n", "<br>")
-        ai_html += f"""
-                    <div class="ai-block">
-                        <div class="ai-block-title">研判策略建议</div>
                         <div class="ai-block-content">{content_html}</div>
                     </div>"""
 

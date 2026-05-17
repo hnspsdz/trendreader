@@ -17,12 +17,11 @@ from trendradar.ai.prompt_loader import load_prompt_template
 @dataclass
 class AIAnalysisResult:
     """AI 分析结果"""
-    # 新版 5 核心板块
-    core_trends: str = ""                # 核心热点与舆情态势
-    sentiment_controversy: str = ""      # 舆论风向与争议
-    signals: str = ""                    # 异动与弱信号
+    # 技术分析 5 核心板块
+    tech_breakthroughs: str = ""         # 技术突破与创新
+    ecosystem_changes: str = ""          # 生态与社区动态
+    engineering_practice: str = ""       # 工程实践与落地
     rss_insights: str = ""               # RSS 深度洞察
-    outlook_strategy: str = ""           # 研判与策略建议
     standalone_summaries: Dict[str, str] = field(default_factory=dict)  # 独立展示区概括 {源ID: 概括}
 
     # 基础元数据
@@ -597,11 +596,10 @@ class AIAnalyzer:
 
         # 解析成功，提取字段
         try:
-            result.core_trends = data.get("core_trends", "")
-            result.sentiment_controversy = data.get("sentiment_controversy", "")
-            result.signals = data.get("signals", "")
+            result.tech_breakthroughs = data.get("tech_breakthroughs", "")
+            result.ecosystem_changes = data.get("ecosystem_changes", "")
+            result.engineering_practice = data.get("engineering_practice", "")
             result.rss_insights = data.get("rss_insights", "")
-            result.outlook_strategy = data.get("outlook_strategy", "")
 
             # 解析独立展示区概括
             summaries = data.get("standalone_summaries", {})
