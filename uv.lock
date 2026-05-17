@@ -1995,7 +1995,7 @@ wheels = [
 ]
 
 [[package]]
-name = "trendradar"
+name = "trendreader"
 version = "6.6.2"
 source = { editable = "." }
 dependencies = [
