@@ -65,6 +65,10 @@ platforms:
       name: "今日头条"
     - id: "baidu"
       name: "百度热搜"
+    - id: "github"
+      name: "GitHub Trending"
+    - id: "github-trending-today"
+      name: "GitHub 今日趋势"
 
 
 
