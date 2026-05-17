@@ -1,7 +1,7 @@
 [project]
-name = "trendradar"
+name = "trendreader"
 version = "6.6.2"
-description = "TrendRadar - 热点新闻聚合与分析工具"
+description = "AITrend - AI 资讯聚合与分析工具"
 requires-python = ">=3.12"
 dependencies = [
     "requests==2.33.0",
